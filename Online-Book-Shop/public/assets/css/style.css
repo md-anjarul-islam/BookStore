@@ -1,0 +1,25 @@
+.body-wrapper{
+    background-color: #eceff1;
+}
+.top-nav-bar{
+    margin-bottom: 30px !important;
+}
+
+.container{
+    width: 400px;
+}
+
+.footer{
+    height: 50px;
+    background-color:blueviolet;
+}
+.card-book{
+    margin-bottom: 50px;
+}
+.card-book-body{
+    width: 260px;
+}
+
+p.card-book-body{
+    overflow: ellipsis;
+}

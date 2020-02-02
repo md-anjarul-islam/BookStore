@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    
+        <title> Register </title>
+    </head>
+
+    <body style=" background-color: #eceff1">
+      <div class="top-bar p-3 mb-2 bg-dark" style="margin-bottom: 30px !important">        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="/"> Home </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/login"> Log In </a>
+          </li>
+        </ul>
+      </div>   
+
+        <div class="container " style="width: 400px;">
+            
+
+            <div class="card shadow-lg">
+              <h3 style="text-align: center;" class="card-header"> Register</h3> <br>
+
+              <div class="p-3">
+                
+                  <form id="form" action="/user/register" method="POST">
+                    <div class="form-group">
+                    <label for="username"> User Name </label>
+                    <input required type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">                
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fullname"> Full Name </label>
+                        <input required type="text" name="fullname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">                    
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email"> E-mail </label>
+                        <input required type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+    
+                    <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input required type="password" name="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Confirm Password</label>
+                        <input required type="password" name="confirmpass" class="form-control" id="exampleInputPassword1">
+                    </div>
+    
+                    <button type="submit" class="btn btn-primary btn-block mt-4">Submit</button>
+                </form> 
+              </div>
+              
+          </div>
+            
+        </div>             
+
+    <footer class="mt-5 bg-dark" style="height: 50px; background-color:blueviolet">
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </footer>
+
+  </body>
+</html>

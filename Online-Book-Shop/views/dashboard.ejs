@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>       
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <title> Dashboard </title>
+    </head>
+
+    <body class="body-wrapper">
+      <div class="top-bar p-3 mb-2 bg-dark top-nav-bar">
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="/user/addbooks"> Add Book </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/"> Home </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/logout"> Log Out </a>
+          </li>
+        </ul>
+      </div>   
+        
+        <div class="container">          
+          <div class="row">                
+                <% info.forEach( (book) => { %>
+                          <div class="col-sm card-book">
+                            <div class="card shadow-lg" style="width: 280px; padding: 2px !important">
+                                <img src="<%= book.image %>" width="100%" height="200px" style="padding:10px" >                    
+                                <div class="card-body card-book-body">
+                                    <h5 class="card-title"> <%= book.title %></h5>
+                                    <p class="card-text"> Rating: <%= book.rating %></p>
+                                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter<%= book._id %>" >Details</a>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit<%= book._id %>"> Edit </button>
+                                    <a href="#" class="btn btn-primary" onclick = "removeBooks"> Remove </a>
+                                </div>
+
+                                <div class="modal fade" id="exampleModalCenter<%= book._id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content" style="width:400px;">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalCenterTitle"><%= book.title %></h5>
+                                                
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="modal-image mb-3" style="display:flex; justify-content: space-between"> 
+                                                    <h5> Cover Page: </h5>
+                                                    <img src="<%= book.image %>" width="150px" height="200px">
+                                                </div>
+            
+                                                <div class="modal-author mb-3" style="display:flex; justify-content: space-between"> 
+                                                    <h5> Author: </h5>
+                                                    <h6><%= book.author %></h6>
+                                                </div>
+            
+                                                <div class="modal-seller mb-3" style="display:flex; justify-content: space-between"> 
+                                                    <div> <h5> About: </h5> </div>
+                                                    <div style="padding-top: 4px; padding-left: 6px;"> <h6><%= book.description %></h6> </div>
+                                                </div>
+            
+                                                <div class="modal-image mb-3" style="display:flex; justify-content: space-between"> 
+                                                    <h5> Rating: </h5>
+                                                    <h6> <%= book.rating %></h6>
+                                                </div>
+            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="edit<%=book._id%>" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editModal">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="form<%= book._id %>" method="POST">
+                                            <div class="form-group">
+                                            <label for="title"> Title </label>
+                                            <input required type="text" name="title" value = "<%= book.title %>" class="form-control">
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="description"> Description : </label>
+                                                <input required type="text" name="description"  value = "<%= book.description %>" class="form-control">
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="author"> Author </label>
+                                                <input required type="text" name="author"  value = "<%= book.author %>"class="form-control">
+                                            </div>
+                            
+                                            <div class="form-group">
+                                                <label for="isbn"> ISBN  </label>
+                                                <input required type="text" name="isbn" value = "<%= book.isbn %>" class="form-control">
+                                            </div>
+                            
+                                            <div class="form-group">
+                                                <label for="rating"> Rating </label>
+                                                <input required type="number" name="rating"  value = "<%= book.rating %>" class="form-control">
+                                            </div>
+                            
+                                            <div class="form-group">
+                                                <label for="seller"> Seller </label>
+                                                <input required type="text" name="seller"  value = "<%= book.seller %>"class="form-control">
+                                            </div>
+                            
+                                            <div class="form-group">
+                                                <label for="image"> Image </label>
+                                                <input required type="text" name="image" class="form-control">
+                                            </div>                                                                                        
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" onclick="SaveChange">Save changes</button>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </br>
+                <% }); %>
+          </div>        
+        </div>                
+
+    <footer class="mt-5 bg-dark footer">
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </footer >
+
+  </body>
+
+</html>

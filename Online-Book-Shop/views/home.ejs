@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <title> Home </title>
+    </head>
+
+    <body style=" background-color: #eceff1">
+     
+      <div class="top-bar p-3 mb-2 bg-dark" style="margin-bottom: 30px !important">
+        <ul class="nav justify-content-end">
+          
+          <% if (data.user) { %>
+            <h3>  <%= data.user.username %> </h3>
+          <% }%>
+          <li class="nav-item ">
+            <a class="nav-link " href="<%= data.link_name[0]%>"> <%= data.link_msg[0]%> </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= data.link_name[1]%>"> <%= data.link_msg[1]%> </a>
+          </li>
+        </ul>
+      </div>        
+        
+        <div class="container" style="width: 900px;">
+            <div class="row">
+              <% data.books.forEach( book => {%>
+                    <div class="col-sm" style="margin-bottom: 50px;">
+                      <div class="card shadow-lg" style="width: 200px; padding: 5px !important">
+                          <img src = "<%= book.image %>" width="100%" height="200px" style="padding:10px" >                    
+                          <div class="card-body">
+                              <h5 class="card-title"> <%= book.title %></h5>
+                              <p class="card-text" style="overflow: ellipsis"> Rating: <%= book.rating %></p>
+                              <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter<%= book._id%>" >Details</a>
+                          </div>
+
+                          <div class="modal fade" id="exampleModalCenter<%= book._id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                              <div class="modal-dialog modal-dialog-centered" role="document">
+                                  <div class="modal-content" style="width:400px;">
+                                      <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalCenterTitle"> <%= book.title %></h5>
+                                          
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                          </button>
+                                      </div>
+                                      <div class="modal-body">
+                                          <div class="modal-image mb-3" style="display:flex; justify-content: space-between"> 
+                                              <h5> Cover Page: </h5>
+                                              <img src="<%= book.image %>" width="150px" height="200px">
+                                          </div>
+
+                                          <div class="modal-author mb-3" style="display:flex; justify-content: space-between"> 
+                                              <h5> Author: </h5>
+                                              <h6> <%= book.author %></h6>
+                                          </div>
+
+                                          <div class="modal-seller mb-3" style="display:flex; justify-content: space-between"> 
+                                              <h5> About: </h5>
+                                              <div style="padding-top: 4px; padding-left: 6px;"> <h6> <%= book.description %></h6> </div>
+                                          </div>
+
+                                          <div class="modal-image mb-3" style="display:flex; justify-content: space-between"> 
+                                              <h5> Rating: </h5>
+                                              <h6> <%= book.rating %></h6>
+                                          </div>
+
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+                </br>
+              <% }); %>
+            </div>        
+        </div>
+
+      <footer class="mt-5 bg-dark" style="height: 50px; background-color:blueviolet">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </footer >
+    </body>
+
+    
+</html>

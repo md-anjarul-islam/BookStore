@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">        
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <title> Add Books </title>
+    </head>
+
+    <body class="body-wrapper">
+        <div class="top-bar p-3 mb-2 bg-dark top-nav-bar">
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="/"> Home </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/dashboard"> Dashboard </a>
+          </li>
+        </ul>
+      </div>   
+        
+        <div class="container" >
+            <div class="card">
+                <div class="card-header">
+                    <h3 style="text-align: center;"> Book Information </h3> <br>
+                </div>
+                
+                <div class="p-3">
+                        
+                    <form id="form" action="/user/addbooks" method="POST">
+                        <div class="form-group">
+                        <label for="title"> Title </label>
+                        <input required type="text" name="title" class="form-control">                
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description"> Description : </label>
+                            <input required type="text" name="description" class="form-control">                    
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="author"> Author </label>
+                            <input required type="text" name="author" class="form-control">                    
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="isbn"> ISBN  </label>
+                            <input required type="text" name="isbn" class="form-control">                    
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="rating"> Rating </label>
+                            <input required type="number" name="rating" class="form-control">                    
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="seller"> Seller </label>
+                            <input required type="text" name="seller" class="form-control">                    
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="pic"> Image </label>
+                            <input required type="text" name="image" class="form-control">                    
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block mt-4">Add Book</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    
+        <footer class="mt-5 bg-dark footer">
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        </footer >
+    </body>
+</html>
